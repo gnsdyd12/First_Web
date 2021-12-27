@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>recommendation-song</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script> -->
+    <script src="colors.js"></script>
+  </head>
+  <body>
+    <span id="name"></span><input type="button" id='loginBtn' value="checking.." onclick="
+    loginHandler(this);
+    ">
+    <div id="title"> 
+      <h1 class="title1"><a href="index.html"><strong>recommendation-song</strong></a>
+       <span class="me"> 201716438 이훈용</span>
+       <input class="night_day" type="button" value="night" onclick="nightDayHandler(this);">
+      </h1>
+    </div>
+    
+    <div id="grid">
+      <ul class="menu">
+        <li>
+          <strong>K-pop</strong>
+          <ul class="submenu">
+            <li><a href="kpop"><strong>K-pop</strong></a></li>
+            <li><strong>추천하기</strong></li>
+            <li><strong>추천받기</strong></li>
+          </ul>
+        </li>
+        <li>
+          <strong>J-pop</strong>
+          <ul class="submenu">
+            <li><a href="jpop"><strong>J-pop</strong></a></li>
+            <li><strong>추천하기</strong></li>
+            <li><strong>추천받기</strong></li>
+          </ul>
+        </li>  
+        <li>
+          <strong>pop</strong>
+          <ul class="submenu">
+            <li><a href="pop"><strong>pop</strong></a></li>
+            <li><strong>추천하기</strong></li>
+            <li><strong>추천받기</strong></li>
+          </ul>
+      </ul>
+      <div class="article">
+        <p style="margin-left:50px; line-height: 200%">
+            <strong>내 감성 POP <br>
+              나만의 음악을 내 멋대로 추천해봐요 <br>
+            </strong>
+        </p>
+        <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+      </div>
+  </div>
+
+
+  </body>
+</html>

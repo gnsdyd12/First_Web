@@ -1,0 +1,143 @@
+body{
+  margin: 0;
+  background: white;
+  color: black;
+  transition: all ease 1s;
+  
+}
+
+body.theme-dark {
+  background: black;
+  color: white;
+}
+body.theme-dark a {
+  color: yellow;
+}
+
+#title {
+  width: 100%;
+  background-color: skyblue;
+  position: relative;
+}
+.me{
+  font-size:10px; 
+  position: absolute;
+  right : 4%;
+  color: black;
+  
+}
+.night_day{
+  position: absolute;
+  right : 0%;
+  
+}
+
+.title1{
+  font-size:30px;
+  text-align: center;
+  border-bottom: 3px solid skyblue;
+  margin: 0px;
+  padding: 20px;
+
+}
+.title1 a{
+  color: black;
+  text-decoration-line: none;
+}
+
+
+#grid{
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  /* grid-template-rows: repeat(auto-fill,minmax(100%,auto)); */
+  grid-template-rows: 875px;
+}
+#grid .menu{
+  border-right: 3px solid skyblue;
+  
+  padding-left :40px;
+  padding-right:20px;
+}
+
+#grid .menu>li>strong{
+  margin: 0px;
+  color: black;
+  font-size: 20px;
+  
+}
+#grid .menu>li{
+  list-style: none;
+  position: relative;
+  text-align: center;
+  background-color: skyblue;
+  width:60%;
+}
+
+.article{
+  padding-left:30px;
+  
+  text-align: left;
+  position: relative;
+}
+.article::after{
+  width: 100%;
+  height: 100%;
+  content: "";
+  background : url('https://post-phinf.pstatic.net/MjAxOTEyMDhfMjMx/MDAxNTc1NzM0MTUwMzU3.unDsNlgGC_aifpfibHjQY7Y14Dvh2kO-tKG2Ewnk4rsg.GAL-3dWZFMUUqy-0rSRLTBXB2G4MU3xONutimeSky1Mg.JPEG/%EC%98%88%EB%A6%B0_%EB%B2%A0%EB%A5%BC%EB%A6%B097.jpg?type=w1200');
+  /* background-repeat: no-repeat;   */
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.5;
+
+  
+}
+#grid .menu>li:hover{
+  background-color: blue;
+}
+#grid .menu>li:hover .submenu{
+  display: block;
+}
+
+#grid .menu .submenu {
+  position:absolute;
+  top: 0px;
+  left: 72px;
+  width:100%;
+  text-align: left;
+  display: none;
+  color: blue;
+  list-style: none;
+  font-size: 20px;
+}
+#grid .menu .submenu >li{
+  background-color: skyblue;
+  color: black; 
+}
+#grid .menu .submenu >li>a{
+  background-color: skyblue;
+  color: black; 
+}
+
+
+
+
+
+@media(max-width:750px){
+  #grid{
+    display: block;
+  }
+  #grid ol{
+    display: none;
+    border-right: none;
+  }
+  h1{
+    border-bottom:none;
+  }
+
+  #name {
+    display: none;
+  }
+}
