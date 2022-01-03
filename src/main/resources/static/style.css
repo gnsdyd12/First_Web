@@ -63,7 +63,11 @@ body.theme-dark a {
   margin: 0px;
   color: black;
   font-size: 20px;
-  
+}
+#grid .menu>li>a{
+  margin: 0px;
+  color: black;
+  font-size: 20px;
 }
 #grid .menu>li{
   list-style: none;

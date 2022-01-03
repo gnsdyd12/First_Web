@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>recommendation-song</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/colors.js"></script>
+    <script>
+        const currentTheme = document.cookie || "day";
+
+    </script>
+</head>
+<body>
+<div id="title">
+    <h1 class="title1"><a href="/index"><strong>recommendation-song</strong></a>
+        <span class="me"> 201716438 이훈용</span>
+        <input class="night_day" type="button" value="night" onclick="nightDayHandler(this);">
+    </h1>
+</div>
+
+<div id="grid">
+    <ul class="menu">
+        <li>
+            <strong>K-pop</strong>
+            <ul class="submenu">
+                <li><a href="/kpop"><strong>K-pop</strong></a></li>
+                <li><strong>추천하기</strong></li>
+                <li><strong>추천받기</strong></li>
+            </ul>
+        </li>
+        <li>
+            <strong>J-pop</strong>
+            <ul class="submenu">
+                <li><a href="/jpop"><strong>J-pop</strong></a></li>
+                <li><strong>추천하기</strong></li>
+                <li><strong>추천받기</strong></li>
+            </ul>
+        </li>
+        <li>
+            <strong>pop</strong>
+            <ul class="submenu">
+                <li><a href="/pop"><strong>pop</strong></a></li>
+                <li><strong>추천하기</strong></li>
+                <li><strong>추천받기</strong></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/post/list"><strong>게시판</strong></a>
+        </li>
+    </ul>
+
+    <div>
+        <h2>게시판</h2>
+        <table>
+            <tr>
+                <th>작성자</th>
+                <td th:text="${post.get().username}">
+
+                </td>
+                <th>조회수</th>
+                <td th:text="${post.get().views}">
+
+                </td>
+            </tr>
+            <tr>
+                <th>제목</th>
+                <td th:text="${post.get().title}">
+
+                </td>
+            </tr>
+            <tr>
+                <th>노래제목</th>
+                <td th:text="${post.get().songtitle}">
+
+                </td>
+            </tr>
+            <tr>
+                <th>아티스트</th>
+                <td th:text="${post.get().artist}">
+
+                </td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td th:text="${post.get().contents}">
+
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>
+</body>
+</html>

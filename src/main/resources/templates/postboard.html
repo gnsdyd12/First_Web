@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>recommendation-song</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/postboard.css">
+    <script src="/colors.js"></script>
+    <script>
+        const currentTheme = document.cookie || "day";
+
+    </script>
+</head>
+<body>
+<div id="title">
+    <h1 class="title1"><a href="/index"><strong>recommendation-song</strong></a>
+        <span class="me"> 201716438 이훈용</span>
+        <input class="night_day" type="button" value="night" onclick="nightDayHandler(this);">
+    </h1>
+</div>
+
+<div id="grid">
+    <ul class="menu">
+        <li>
+            <strong>K-pop</strong>
+            <ul class="submenu">
+                <li><a href="/kpop"><strong>K-pop</strong></a></li>
+                <li><strong>추천하기</strong></li>
+                <li><strong>추천받기</strong></li>
+            </ul>
+        </li>
+        <li>
+            <strong>J-pop</strong>
+            <ul class="submenu">
+                <li><a href="/jpop"><strong>J-pop</strong></a></li>
+                <li><strong>추천하기</strong></li>
+                <li><strong>추천받기</strong></li>
+            </ul>
+        </li>
+        <li>
+            <strong>pop</strong>
+            <ul class="submenu">
+                <li><a href="/pop"><strong>pop</strong></a></li>
+                <li><strong>추천하기</strong></li>
+                <li><strong>추천받기</strong></li>
+            </ul>
+        </li>
+        <li>
+            <a href="/post/list"><strong>게시판</strong></a>
+        </li>
+    </ul>
+
+    <div>
+        <h2>게시판</h2>
+        <table class="postboard">
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>노래</th>
+                <th>가수</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody class = "postTable">
+            <tr th:each="post : ${posts}">
+                <td th:text="${post.id}"></td>
+                <td th:text="${post.songtitle}"></td>
+                <td th:text="${post.artist}"></td>
+                <td>
+                    <a th:href="@{'/post/content/' + ${post.id}}">
+                        <span th:text="${post.title}"></span>
+                    </a>
+                </td>
+                <td th:text="${post.username}"></td>
+                <td th:text="${post.views}"></td>
+            </tr>
+            </tbody>
+            <tfoot>
+                <td colspan="9999">
+                    <a href="/post/write" class="write-btn">글쓰기</a>
+                </td>
+            </tfoot>
+        </table>
+    </div>
+</div>
+</body>
+</html>

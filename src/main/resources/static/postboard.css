@@ -1,0 +1,29 @@
+.postboard{
+    text-align: center;
+    width: 60%;
+    margin-left: 100px;
+    border-top: 1px solid #444444;
+    border-spacing: 5px;
+}
+.postboard>thead>tr{
+    border-bottom: 1px solid #444444;
+}
+.postTable>tr>td{
+    padding: 5px;
+}
+.write-btn {
+    padding: 4px 8px;
+    background: skyblue;
+    border: 1px solid darkgray;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.write-btn:hover {
+    background: hotpink;
+}
+
+.postboard>tfoot{
+    text-align: right;
+}

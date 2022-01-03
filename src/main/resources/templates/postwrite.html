@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>recommendation-song</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/colors.js"></script>
+    <script>
+        const currentTheme = document.cookie || "day";
+
+    </script>
+</head>
+<body>
+    <div id="title">
+        <h1 class="title1"><a href="/index"><strong>recommendation-song</strong></a>
+            <span class="me"> 201716438 이훈용</span>
+            <input class="night_day" type="button" value="night" onclick="nightDayHandler(this);">
+        </h1>
+    </div>
+
+    <div id="grid">
+        <ul class="menu">
+            <li>
+                <strong>K-pop</strong>
+                <ul class="submenu">
+                    <li><a href="/kpop"><strong>K-pop</strong></a></li>
+                    <li><strong>추천하기</strong></li>
+                    <li><strong>추천받기</strong></li>
+                </ul>
+            </li>
+            <li>
+                <strong>J-pop</strong>
+                <ul class="submenu">
+                    <li><a href="/jpop"><strong>J-pop</strong></a></li>
+                    <li><strong>추천하기</strong></li>
+                    <li><strong>추천받기</strong></li>
+                </ul>
+            </li>
+            <li>
+                <strong>pop</strong>
+                <ul class="submenu">
+                    <li><a href="/pop"><strong>pop</strong></a></li>
+                    <li><strong>추천하기</strong></li>
+                    <li><strong>추천받기</strong></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/post/list"><strong>게시판</strong></a>
+            </li>
+        </ul>
+
+        <div>
+            <h2>게시판</h2>
+            <form class="form_post_write" action="/post/list" method="POST">
+                <div class="id">
+                    <label>
+                        작성자 :
+                        <input type="text" name="username" required>
+                    </label>
+                </div>
+                <div class="pw">
+                    <label>
+                        비밀번호 :
+                        <input type="password" name="password" required>
+                    </label>
+                </div>
+                <div class="song_title">
+                    <label>
+                        노래 :
+                        <input type="text" name="songtitle" required>
+                    </label>
+                </div>
+                <div class="artist">
+                    <label>
+                        아티스트 :
+                        <input type="text" name="artist" required>
+                    </label>
+                </div>
+                <div class="title">
+                    <label>
+                        제목 :
+                        <input type="text" name="title" required>
+                    </label>
+                </div>
+                <div class="contents">
+                    <label>
+                        본문 :
+                        <input type="text" name="contents" required>
+                    </label>
+                </div>
+                <button type="submit">저장</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
