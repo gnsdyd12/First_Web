@@ -16,7 +16,6 @@ public class PostController {
         this.postService = postService;
     }
 
-
     @PostMapping("list")
     public String postboard(PostDto.PostSaveDto postSaveDto) {
         postService.save(new Post(postSaveDto));

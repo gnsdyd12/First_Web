@@ -28,11 +28,6 @@ public class PostDto {
             this.contents = contents;
         }
 
-        public Post getPost() {
-            Post post = new Post();
-
-            return post;
-        }
 
         public String getSongtitle() {
             return songtitle;
@@ -157,6 +152,14 @@ public class PostDto {
             this.username = username;
             this.contents = contents;
             this.views= views;
+        }
+        public PostDetailDto(Post post){
+            this.songtitle = post.getSongtitle();
+            this.artist = post.getArtist();
+            this.title = post.getTitle();
+            this.username = post.getUsername();
+            this.contents = post.getContents();
+            this.views= post.getViews();
         }
 
         public String getSongtitle() {

@@ -1,22 +1,36 @@
 package hello.hellospring.post;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
+@Entity
 public class Post {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id=-1L;
+    @Column(name = "password")
     private String pw;
+    @Column
     private String username;
+    @Column
     private String title;
+    @Column
     private String contents;
+    @Column
     private String link;
+    @Column
     private String songtitle;
+    @Column
     private String artist;
+    @Column
     private Long views;
+    @Column
+    private LocalDateTime created_time = LocalDateTime.now();
 
+    public Post(){
 
-    public Post() {
     }
 
     public Post(PostDto.PostSaveDto postSaveDto) {
@@ -28,7 +42,7 @@ public class Post {
         this.contents = postSaveDto.getContents();
         this.songtitle = postSaveDto.getSongtitle();
         this.artist = postSaveDto.getArtist();
-        this.views=0L;
+        this.views = 0L;
         /* ... */
     }
 
@@ -128,5 +142,4 @@ public class Post {
         this.created_time = created_time;
     }
 
-    private LocalDateTime created_time;
 }

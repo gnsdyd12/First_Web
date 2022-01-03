@@ -25,17 +25,17 @@ public class IndexController {
 
     @GetMapping("kpop")
     public ModelAndView kpop(ModelAndView modelAndView) {
-        //model.addAttribute("data","hello!!");
+
         modelAndView.setViewName("kpop");
-        //modelAndView.addObject("data", "spring");
+
         return modelAndView;
     }
 
     @GetMapping("pop")
     public ModelAndView pop(ModelAndView modelAndView) {
-        //model.addAttribute("data","hello!!");
+
         modelAndView.setViewName("pop");
-        //modelAndView.addObject("data", "spring");
+
         return modelAndView;
     }
 }
