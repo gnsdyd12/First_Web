@@ -10,3 +10,15 @@
 .modify-btn:hover {
     background: hotpink;
 }
+.delete-btn {
+    padding: 4px 8px;
+    background: skyblue;
+    border: 1px solid darkgray;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.delete-btn:hover {
+    background: hotpink;
+}

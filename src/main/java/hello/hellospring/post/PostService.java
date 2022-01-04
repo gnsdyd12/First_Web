@@ -63,4 +63,20 @@ public class PostService {
         });
     }
 
+    public Optional<PostDto.PostDeleteDto> findByIdForDelete(Long id){
+        Optional<Post> post = postRepo.findById(id);
+        if(post.isEmpty()){
+            throw new RuntimeException("아이디가 없습니다");
+        }else{
+            return Optional.of(new PostDto.PostDeleteDto(post.get()));
+        }
+    }
+
+    public void delete(Long id){
+        Optional<Post> post = postRepo.findById(id);
+        post.ifPresent(m->{
+            postRepo.delete(post.get());
+        });
+    }
+
 }

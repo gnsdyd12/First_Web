@@ -62,4 +62,11 @@ public class PostController {
         postService.modify(postModifyDto);
         return "redirect:/post/content/"+postModifyDto.getId();
     }
+
+    @GetMapping(value = "delete/{id}")
+    public String postDelete(@PathVariable Long id){
+        Optional<PostDto.PostDeleteDto> post =postService.findByIdForDelete(id);
+        postService.delete(post.get().getId());
+        return "redirect:/post/list";
+    }
 }

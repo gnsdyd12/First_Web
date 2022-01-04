@@ -315,6 +315,27 @@ public class PostDto {
             this.contents = contents;
         }
 
+    }
 
+    public static class PostDeleteDto{
+        private Long id;
+
+        public PostDeleteDto() {
+        }
+
+        public PostDeleteDto(Long id) {
+            this.id = id;
+        }
+        public PostDeleteDto(Post post){
+            this.id = post.getId();
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
     }
 }
