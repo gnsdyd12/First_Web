@@ -61,6 +61,13 @@ public class Post {
         return parameters;
     }
 
+    public void modify(PostDto.PostModifyDto postModifyDto){
+        this.artist= postModifyDto.getArtist();
+        this.songtitle=postModifyDto.getSongtitle();
+        this.title= postModifyDto.getTitle();
+        this.contents= postModifyDto.getContents();
+    }
+
     public Long getViews() {
         return views;
     }

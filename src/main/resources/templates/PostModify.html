@@ -4,7 +4,6 @@
     <title>recommendation-song</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/postcontents.css">
     <script src="/colors.js"></script>
     <script>
         const currentTheme = document.cookie || "day";
@@ -52,48 +51,47 @@
 
     <div>
         <h2>게시판</h2>
-        <table>
-            <tr>
-                <th>작성자</th>
-                <td th:text="${post.username}">
-
-                </td>
-                <th>조회수</th>
-                <td th:text="${post.views}">
-
-                </td>
-            </tr>
-            <tr>
-                <th>제목</th>
-                <td th:text="${post.title}">
-
-                </td>
-            </tr>
-            <tr>
-                <th>노래제목</th>
-                <td th:text="${post.songtitle}">
-
-                </td>
-            </tr>
-            <tr>
-                <th>아티스트</th>
-                <td th:text="${post.artist}">
-
-                </td>
-            </tr>
-            <tr>
-                <th>내용</th>
-                <td th:text="${post.contents}">
-
-                </td>
-            </tr>
-            <tfoot>
-                <td colspan="9999">
-                    <a th:href="@{'/post/modify/' + ${post.id}}" class="modify-btn">수정</a>
-                </td>
-            </tfoot>
-        </table>
-
+        <form class="form_post_write" action="/post/modify" method="POST">
+            <input type="hidden" name="id" th:value="${post.id}">
+            <div class="username">
+                <label>
+                    작성자 :
+                    <span th:text="${post.username}"></span>
+                    <input type="hidden" name="username" th:value="${post.username}">
+                </label>
+            </div>
+            <div class="pw">
+                <label>
+                    비밀번호 :
+                    <input type="password" name="password" required>
+                </label>
+            </div>
+            <div class="song_title">
+                <label>
+                    노래 :
+                    <input type="text" name="songtitle" required>
+                </label>
+            </div>
+            <div class="artist">
+                <label>
+                    아티스트 :
+                    <input type="text" name="artist" required>
+                </label>
+            </div>
+            <div class="title">
+                <label>
+                    제목 :
+                    <input type="text" name="title" required>
+                </label>
+            </div>
+            <div class="contents">
+                <label>
+                    본문 :
+                    <input type="text" name="contents" required>
+                </label>
+            </div>
+            <button type="submit">저장</button>
+        </form>
     </div>
 </div>
 </body>

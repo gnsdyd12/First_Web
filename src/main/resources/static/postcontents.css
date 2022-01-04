@@ -1,0 +1,12 @@
+.modify-btn {
+    padding: 4px 8px;
+    background: skyblue;
+    border: 1px solid darkgray;
+    border-radius: 6px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.modify-btn:hover {
+    background: hotpink;
+}

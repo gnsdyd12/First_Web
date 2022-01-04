@@ -44,10 +44,22 @@ public class PostController {
         Optional<PostDto.PostDetailDto> post= postService.findById(id);
         postService.view_Count(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("post",post);
+        modelAndView.addObject("post",post.get());
         modelAndView.setViewName("postcontents");
         return modelAndView;
     }
 
-
+    @GetMapping(value = "modify/{id}")
+    public ModelAndView postModify(@PathVariable Long id){
+        Optional<PostDto.PostModifyDto> post = postService.findByIdForModify(id);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("post",post.get());
+        modelAndView.setViewName("PostModify");
+        return modelAndView;
+    }
+    @PostMapping("modify")
+    public String postModify2(PostDto.PostModifyDto postModifyDto){
+        postService.modify(postModifyDto);
+        return "redirect:/post/content/"+postModifyDto.getId();
+    }
 }
