@@ -84,11 +84,23 @@ public class PostService {
         }
     }
 
-    public void delete(Long id){
-        Optional<Post> post = postRepo.findById(id);
-        post.ifPresent(m->{
-            postRepo.delete(post.get());
-        });
-    }
+    public boolean delete(PostDto.PostDeleteDto postDeleteDto){
 
+
+        Optional<Post> post = postRepo.findById(postDeleteDto.getId());
+
+        AtomicBoolean check = new AtomicBoolean(false);
+
+        post.ifPresent(m->{
+            String pw = post.get().getPw();
+            String pw2 = postDeleteDto.getPassword();
+            if (passwordEncoder.matches(pw2, pw)) {
+                postRepo.delete(post.get());
+                check.set(true);
+            } else {
+                check.set(false);
+            }
+        });
+        return check.get();
+    }
 }

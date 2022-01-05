@@ -47,7 +47,7 @@
 
     <div>
         <h2>게시판</h2>
-        <form name="form1" class="form_post_write" th:action="@{'/post/modify/'+${post.id}}" method="POST" th:object="${post}" onsubmit="return confirm('게시글을 변경합니다')">
+        <form name="form1" class="form_post_write" th:action="@{'/post/delete/'+${post.id}}" method="POST" th:object="${post}">
             <input type="hidden" th:field="${post.id}">
             <div class="username">
                 <label>
@@ -62,32 +62,8 @@
                     <input type="password" th:field="${post.password}" required>
                 </label>
             </div>
-            <div class="song_title">
-                <label>
-                    노래 :
-                    <input type="text" th:field="${post.songtitle}" required>
-                </label>
-            </div>
-            <div class="artist">
-                <label>
-                    아티스트 :
-                    <input type="text" th:field="${post.artist}" required>
-                </label>
-            </div>
-            <div class="title">
-                <label>
-                    제목 :
-                    <input type="text" th:field="${post.title}" required>
-                </label>
-            </div>
-            <div class="contents">
-                <label>
-                    본문 :
-                    <input type="text" th:field="${post.contents}" required>
-                </label>
-            </div>
 
-            <button id="btnUpdate" type="submit">저장</button>
+            <button id="btnUpdate" type="submit">삭제</button>
             <span th:text="${pwNot}"></span>
         </form>
     </div>

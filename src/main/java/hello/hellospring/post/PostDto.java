@@ -319,15 +319,38 @@ public class PostDto {
 
     public static class PostDeleteDto{
         private Long id;
+        private String password;
+        private String username;
+
+        public PostDeleteDto(Long id, String password, String username) {
+            this.id = id;
+            this.password = password;
+            this.username = username;
+        }
 
         public PostDeleteDto() {
         }
 
-        public PostDeleteDto(Long id) {
-            this.id = id;
-        }
         public PostDeleteDto(Post post){
             this.id = post.getId();
+            this.password=post.getPw();
+            this.username=post.getUsername();
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
         }
 
         public Long getId() {

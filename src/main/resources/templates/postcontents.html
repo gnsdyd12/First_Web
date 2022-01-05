@@ -92,7 +92,7 @@
                     <a th:href="@{'/post/modify/' + ${post.id}}" id="btn-update" class="modify-btn">수정</a>
                 </td>
                 <td colspan="9999">
-                    <a th:href="@{'/post/delete/'+ ${post.id}}"  id="btn-delete" class="delete-btn">삭제</a>
+                    <a th:href="@{'/post/fordelete/'+ ${post.id}}"  id="btn-delete" class="delete-btn">삭제</a>
                 </td>
             </tfoot>
         </table>
@@ -109,7 +109,7 @@
     }
     document.getElementById("btn-delete").onclick = function () {
         if (confirm("삭제하시겠습니까?")) {
-            //document.form1.submit();
+
         }else{
             return false;
         }

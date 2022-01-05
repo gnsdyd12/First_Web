@@ -71,20 +71,26 @@ public class PostController {
         }
         return "redirect:/post/content/"+postModifyDto.getId();
     }
-//    @PutMapping("Notmodify")
-//    public String postModify3(PostDto.PostModifyDto postModifyDto,Model model){
-//        boolean result;
-//        result= postService.modify(postModifyDto);
-//        if(!result){
-//            model.addAttribute("pwNot","비밀번호가 틀립니다.");
-//            return "redirect:/post/modify/"+postModifyDto.getId();
-//        }
-//    }
 
-    @GetMapping(value = "delete/{id}")
-    public String postDelete(@PathVariable Long id){
+    @GetMapping(value = "fordelete/{id}")
+    public ModelAndView postPwForDelete(@PathVariable Long id){
         Optional<PostDto.PostDeleteDto> post =postService.findByIdForDelete(id);
-        postService.delete(post.get().getId());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("post", post.get());
+        modelAndView.setViewName("postPwForDelete");
+        return modelAndView;
+    }
+
+    @PostMapping(value = "delete/{id}")
+    public String postDelete(PostDto.PostDeleteDto postDeleteDto, Model model){
+        //삭제
+        boolean result;
+        result = postService.delete(postDeleteDto);
+        if(!result){
+            model.addAttribute("post",postDeleteDto);
+            model.addAttribute("pwNot","비밀번호가 틀립니다.");
+            return "postPwForDelete";
+        }
         return "redirect:/post/list";
     }
 }

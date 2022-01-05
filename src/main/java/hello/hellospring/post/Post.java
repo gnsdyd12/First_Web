@@ -68,6 +68,7 @@ public class Post {
         this.contents= postModifyDto.getContents();
     }
 
+
     public Long getViews() {
         return views;
     }
