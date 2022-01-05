@@ -14,7 +14,7 @@ body.theme-dark a {
   color: yellow;
 }
 
-#title {
+body>#title {
   width: 100%;
   background-color: skyblue;
   position: relative;

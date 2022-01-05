@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 @Service
 public class PostService {
@@ -47,13 +48,24 @@ public class PostService {
             return Optional.of(new PostDto.PostModifyDto(post.get()));
         }
     }
-    public void modify(PostDto.PostModifyDto postModifyDto) {
+    public boolean modify(PostDto.PostModifyDto postModifyDto) {
         Optional<Post> post = postRepo.findById(postModifyDto.getId());
-        post.ifPresent(m->{
-            m.modify(postModifyDto);
-            postRepo.save(m);
+        AtomicBoolean check = new AtomicBoolean(false);
+        post.ifPresent(m -> {
+            String pw = post.get().getPw();
+            String pw2 = postModifyDto.getPassword();
+
+            if (passwordEncoder.matches(pw2, pw)) {
+                m.modify(postModifyDto);
+                postRepo.save(m);
+                check.set(true);
+            } else {
+                check.set(false);
+            }
         });
+        return check.get();
     }
+
 
     public void view_Count(Long id) {
         Optional<Post> post= postRepo.findById(id);

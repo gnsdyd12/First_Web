@@ -1,6 +1,7 @@
 package hello.hellospring.post;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -52,16 +53,33 @@ public class PostController {
     @GetMapping(value = "modify/{id}")
     public ModelAndView postModify(@PathVariable Long id){
         Optional<PostDto.PostModifyDto> post = postService.findByIdForModify(id);
+        //postService.checkPw(post.get());
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("post",post.get());
         modelAndView.setViewName("PostModify");
         return modelAndView;
     }
-    @PostMapping("modify")
-    public String postModify2(PostDto.PostModifyDto postModifyDto){
-        postService.modify(postModifyDto);
+
+    @PostMapping("modify/{id}")
+    public String postModify2(PostDto.PostModifyDto postModifyDto, Model model){
+        boolean result;
+        result= postService.modify(postModifyDto);
+        if(!result){
+            model.addAttribute("post",postModifyDto);
+            model.addAttribute("pwNot","비밀번호가 틀립니다.");
+            return "PostModify";
+        }
         return "redirect:/post/content/"+postModifyDto.getId();
     }
+//    @PutMapping("Notmodify")
+//    public String postModify3(PostDto.PostModifyDto postModifyDto,Model model){
+//        boolean result;
+//        result= postService.modify(postModifyDto);
+//        if(!result){
+//            model.addAttribute("pwNot","비밀번호가 틀립니다.");
+//            return "redirect:/post/modify/"+postModifyDto.getId();
+//        }
+//    }
 
     @GetMapping(value = "delete/{id}")
     public String postDelete(@PathVariable Long id){
