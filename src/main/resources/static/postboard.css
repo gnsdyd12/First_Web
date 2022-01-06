@@ -19,11 +19,20 @@
     text-decoration: none;
     color: black;
     font-weight: bold;
+    margin-left: 63%;
 }
 .write-btn:hover {
     background: hotpink;
 }
 
-.postboard>tfoot{
+.write{
     text-align: right;
+}
+
+.pageable{
+    margin-left: 35%;
+}
+
+.pageable>span>a{
+    text-decoration-line: none;
 }

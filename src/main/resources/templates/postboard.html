@@ -63,8 +63,8 @@
                 <th>조회수</th>
             </tr>
             </thead>
-            <tbody class = "postTable">
-            <tr th:each="post : ${posts}">
+            <tbody class="postTable">
+            <tr th:each="post : ${postboard.content}">
                 <td th:text="${post.id}"></td>
                 <td th:text="${post.songtitle}"></td>
                 <td th:text="${post.artist}"></td>
@@ -77,12 +77,20 @@
                 <td th:text="${post.views}"></td>
             </tr>
             </tbody>
-            <tfoot>
-                <td colspan="9999">
-                    <a href="/post/write" class="write-btn">글쓰기</a>
-                </td>
+                <!--                    [[ ${ postboard.first } ]]-->
+                <!--                    [[ ${ postboard.last } ]]-->
+                <!--                    [[ ${ postboard.totalPages } ]]-->
             </tfoot>
         </table>
+        <div class="pageable">
+            <
+            <span th:each="pagenum : ${pageList}">
+                <a th:text="${pagenum}" th:href="@{/post/list(page=${pagenum - 1})}"></a>
+            </span>
+             >
+        </div>
+
+        <a href="/post/write" class="write-btn">글쓰기</a>
     </div>
 </div>
 </body>
